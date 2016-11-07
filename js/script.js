@@ -28538,5 +28538,10 @@ $date.datepicker({
   changeYear: true
 });
 
+
+$('.render').click(function(e) {
+  e.preventDefault();
+  
+});
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./../bower_components/jquery-ui/jquery-ui.js":1,"./../bower_components/jquery/dist/jquery.js":2}]},{},[3]);

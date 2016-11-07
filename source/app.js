@@ -12,3 +12,9 @@ $date.datepicker({
   changeMonth: true,
   changeYear: true
 });
+
+
+$('.render').click(function(e) {
+  e.preventDefault();
+  
+});
