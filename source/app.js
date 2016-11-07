@@ -1,6 +1,6 @@
 "use strict";
 
-var $ = require('jquery');
+var $ = global.jQuery = require('jquery');
 require('jquery-ui');
 
 var $date = $('.date');

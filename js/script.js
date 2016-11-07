@@ -28522,9 +28522,10 @@ return jQuery;
 }));
 
 },{}],3:[function(require,module,exports){
+(function (global){
 "use strict";
 
-var $ = require("./../bower_components/jquery/dist/jquery.js");
+var $ = global.jQuery = require("./../bower_components/jquery/dist/jquery.js");
 require("./../bower_components/jquery-ui/jquery-ui.js");
 
 var $date = $('.date');
@@ -28537,4 +28538,5 @@ $date.datepicker({
   changeYear: true
 });
 
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./../bower_components/jquery-ui/jquery-ui.js":1,"./../bower_components/jquery/dist/jquery.js":2}]},{},[3]);
