@@ -39962,6 +39962,7 @@ var hapi = new holiday(apikey).v1;
 var $date = $('.date');
 var $days = $('.days');
 var $country = $('.country');
+console.log($country);
 
 // Datepicker.
 $date.datepicker({
@@ -40037,12 +40038,13 @@ $('.render').click(function(e) {
 
     // Valid dates.
     for(var i = positionInWeek; i < 7; i++) {
-      var className = (i == 0 || i == 6) ? 'warning' : 'success';
+      var className = (i == 0 || i == 6) ? 'yellow' : 'green';
       $trClone
         .append($td
           .clone()
           .attr('title', j)
           .addClass(className)
+          .addClass('d-' + date.format('YYYY-MM-DD'))
           .text(date.format('D')));
       date = moment(date).add(1, 'd');
       j++;
@@ -40064,12 +40066,13 @@ $('.render').click(function(e) {
               .addClass('active')
               .html('&nbsp'));
         } else {
-          var className = (i == 0 || i == 6) ? 'warning' : 'success';
+          var className = (i == 0 || i == 6) ? 'yellow' : 'green';
           $trClone
             .append($td
               .clone()
               .attr('title', j)
               .addClass(className)
+              .addClass('d-' + date.format('YYYY-MM-DD'))
               .text(date.format('D')));
           date = moment(date).add(1, 'd');          
           j++;
@@ -40078,10 +40081,25 @@ $('.render').click(function(e) {
       $trClone.appendTo($tableClone);
     }
 
+    // Holiday Check here.
+    if(thisYear == '2008') {
+      console.log($country.val());
+      var parameters = {
+        country: $country.val(),
+        year: thisYear,
+        month: thisMonth
+      }
+
+      hapi.holidays(parameters, function (err, data) {
+        data.holidays.forEach(function(i) {
+          $('.d-' + i.date)
+            .addClass('orange')
+            .attr('title', i.name);
+        });
+      });
+    }
+
   }
-
-  // Holiday Check here.
-
 
 });
 

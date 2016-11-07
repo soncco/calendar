@@ -1,0 +1,19 @@
+tbody td {
+  color: #fff;
+}
+
+.green {
+  background: #1abc9c;
+}
+
+.gray {
+  background: #ecf0f1;
+}
+
+.yellow {
+  background: #f1c40f;
+}
+
+.orange {
+  background: #d35400; !important
+}
