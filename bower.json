@@ -1,0 +1,21 @@
+{
+  "name": "calendar",
+  "description": "Calendar render example",
+  "main": "js/script.js",
+  "authors": [
+    "Braulio Soncco"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "calendar",
+    "render"
+  ],
+  "homepage": "https://github.com/soncco/calendar",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
