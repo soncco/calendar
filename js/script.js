@@ -32844,7 +32844,7 @@ $('.render').click(function(e) {
 
     // Valid dates.
     for(var i = positionInWeek; i < 7; i++) {
-      var className = (i == 0 || i == 6) ? 'success' : 'warning';
+      var className = (i == 0 || i == 6) ? 'warning' : 'success';
       $trClone
         .append($td
           .clone()
@@ -32856,17 +32856,27 @@ $('.render').click(function(e) {
 
     $tableClone.appendTo($calendar);
 
+    var lastMonthDay = moment(date).endOf('month');
+
     while(thisMonth == date.format('MM')) {
       var $trClone = $tr.clone();
 
       for(var i = 0; i < 7; i++) {
-        var className = (i == 0 || i == 6) ? 'success' : 'warning';
-        $trClone
-          .append($td
-            .clone()
-            .addClass(className)
-            .text(date.format('D')));
-        date = moment(date).add(1, 'd');
+        if(date > lastMonthDay) {
+          $trClone
+            .append($td
+              .clone()
+              .addClass('active')
+              .html('&nbsp'));
+        } else {
+          var className = (i == 0 || i == 6) ? 'warning' : 'success';
+          $trClone
+            .append($td
+              .clone()
+              .addClass(className)
+              .text(date.format('D')));
+          date = moment(date).add(1, 'd');          
+        }
       }
       $trClone.appendTo($tableClone);
     }
