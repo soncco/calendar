@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Calendar Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 </head>
 <body>
-  
+  <div class="container">
+    <h1 class="page-header">Calendar Example</h1>
+
+    <div class="well">
+      <div class="row">
+        <form action="" id="form">
+          <div class="col-md-3"><input type="text" class="form-control" placeholder="Start Date" required></div>
+          <div class="col-md-3"><input type="number" min="1" step="1" class="form-control" placeholder="Number of days" required></div>
+          <div class="col-md-3"><input type="text" class="form-control" placeholder="Country Code" maxlenght="2" required></div>
+          <div class="col-md-3"><button class="btn btn-block btn-success" type="submit">Render!</button></div>
+        </form>
+      </div>
+    </div>
+
+    <div id="calendar"></div>
+
+  </div>
 </body>
 </html>
