@@ -39,6 +39,7 @@ $('.render').click(function(e) {
   $calendar.append('<h2>' + $days.val() + ' Days Example</h2>');
 
   // Main loop.
+  var j = 1;
   while(date < endDate) {
     var thisMonth = date.format('MM');
     var thisYear = date.format('YYYY');
@@ -79,7 +80,6 @@ $('.render').click(function(e) {
           .clone()
           .addClass('active')
           .html('&nbsp'));
-      date = moment(date).add(1, 'd');
     }
 
     // Valid dates.
@@ -88,9 +88,11 @@ $('.render').click(function(e) {
       $trClone
         .append($td
           .clone()
+          .attr('title', j)
           .addClass(className)
           .text(date.format('D')));
       date = moment(date).add(1, 'd');
+      j++;
     }
     $trClone.appendTo($tableClone);
 
@@ -113,9 +115,11 @@ $('.render').click(function(e) {
           $trClone
             .append($td
               .clone()
+              .attr('title', j)
               .addClass(className)
               .text(date.format('D')));
           date = moment(date).add(1, 'd');          
+          j++;
         }
       }
       $trClone.appendTo($tableClone);
