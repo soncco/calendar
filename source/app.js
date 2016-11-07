@@ -84,10 +84,11 @@ $('.render').click(function(e) {
 
     // Valid dates.
     for(var i = positionInWeek; i < 7; i++) {
+      var className = (i == 0 || i == 6) ? 'success' : 'warning';
       $trClone
         .append($td
           .clone()
-          .addClass('success')
+          .addClass(className)
           .text(date.format('D')));
       date = moment(date).add(1, 'd');
     }
@@ -96,6 +97,21 @@ $('.render').click(function(e) {
     $tableClone.appendTo($calendar);
 
     date = moment(date).add(1, 'd');
+
+    while(thisMonth == date.format('MM')) {
+      var $trClone = $tr.clone();
+
+      for(var i = 0; i < 7; i++) {
+        var className = (i == 0 || i == 6) ? 'success' : 'warning';
+        $trClone
+          .append($td
+            .clone()
+            .addClass(className)
+            .text(date.format('D')));
+        date = moment(date).add(1, 'd');
+      }
+      $trClone.appendTo($tableClone);
+    }
 
   }
 
