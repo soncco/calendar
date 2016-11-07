@@ -2,6 +2,7 @@
 
 var $ = global.jQuery = require('jquery');
 require('jquery-ui');
+var moment = require('moment');
 
 var $date = $('.date');
 var $days = $('.days');
@@ -16,5 +17,5 @@ $date.datepicker({
 
 $('.render').click(function(e) {
   e.preventDefault();
-  
+
 });

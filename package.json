@@ -24,5 +24,8 @@
     "browserify": "^13.1.1",
     "debowerify": "^1.5.0",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "moment": "^2.15.2"
   }
 }
