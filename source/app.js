@@ -5,6 +5,11 @@ var $ = global.jQuery = require('jquery');
 require('jquery-ui');
 var moment = require('moment');
 
+// Holiday Api.
+var apikey = 'fd30170a-e3fd-4a57-a028-41534dadf589';
+var holiday = require('node-holidayapi');
+var hapi = new holiday(apikey).v1;
+
 // Elements.
 var $date = $('.date');
 var $days = $('.days');
@@ -126,5 +131,8 @@ $('.render').click(function(e) {
     }
 
   }
+
+  // Holiday Check here.
+
 
 });
