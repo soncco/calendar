@@ -4,7 +4,7 @@
   "description": "Calendar render example",
   "main": "js/script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "watchify -t debowerify ./source/app.js -o ./js/script.js"
   },
   "repository": {
     "type": "git",
