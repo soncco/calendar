@@ -32800,8 +32800,6 @@ $('.render').click(function(e) {
 
   // Main loop.
   while(date < endDate) {
-    date = moment(date).add(1, 'd');
-
     var thisMonth = date.format('MM');
     var thisYear = date.format('YYYY');
 
@@ -32819,7 +32817,7 @@ $('.render').click(function(e) {
         .text(i)
         .appendTo($trClone);
     });
-    $trClone.appendTo($tableClone);
+    $tableClone.find('thead').append($trClone);
 
     // Table title.
     var $trClone = $tr.clone();
@@ -32830,9 +32828,34 @@ $('.render').click(function(e) {
         .addClass('text-center')
         .text(date.format('MMMM YYYY')));
 
+    $tableClone.find('thead').append($trClone);
+
+    // Invalid dates.
+    var positionInWeek = date.format('d');
+    var $trClone = $tr.clone();
+    for(var i = 0; i < positionInWeek; i++) {
+      $trClone
+        .append($td
+          .clone()
+          .addClass('active')
+          .html('&nbsp'));
+      date = moment(date).add(1, 'd');
+    }
+
+    // Valid dates.
+    for(var i = positionInWeek; i < 7; i++) {
+      $trClone
+        .append($td
+          .clone()
+          .addClass('success')
+          .text(date.format('D')));
+      date = moment(date).add(1, 'd');
+    }
     $trClone.appendTo($tableClone);
 
     $tableClone.appendTo($calendar);
+
+    date = moment(date).add(1, 'd');
 
   }
 
