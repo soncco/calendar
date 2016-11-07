@@ -32805,21 +32805,33 @@ $('.render').click(function(e) {
     var thisMonth = date.format('MM');
     var thisYear = date.format('YYYY');
 
+    // Table.
     var $tableClone = $table.clone();
     $tableClone
       .addClass('m-' + thisMonth + '-' + thisYear);
 
+    // Header of days.
     var $trClone = $tr.clone();
     daysArray.forEach(function(i) {
-      var $tdClone = $td.clone();
-      $tdClone
+      var $thClone = $th.clone();
+      $thClone
         .addClass('text-center')
         .text(i)
         .appendTo($trClone);
     });
+    $trClone.appendTo($tableClone);
 
+    // Table title.
+    var $trClone = $tr.clone();
+    $trClone
+      .html($th
+        .clone()
+        .attr('colspan', 7)
+        .addClass('text-center')
+        .text(date.format('MMMM YYYY')));
 
     $trClone.appendTo($tableClone);
+
     $tableClone.appendTo($calendar);
 
   }
