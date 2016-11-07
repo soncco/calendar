@@ -32,7 +32,7 @@ $('.render').click(function(e) {
   // Main loop.
   while(date < endDate) {
     date = moment(date).add(1, 'd');
-    console.log(date.format('DD MM YYYY')):
+    console.log(date.format('DD MM YYYY'));
   }
 
 });
