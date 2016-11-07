@@ -96,8 +96,6 @@ $('.render').click(function(e) {
 
     $tableClone.appendTo($calendar);
 
-    date = moment(date).add(1, 'd');
-
     while(thisMonth == date.format('MM')) {
       var $trClone = $tr.clone();
 
