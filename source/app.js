@@ -26,13 +26,42 @@ $('.render').click(function(e) {
   var date = moment($date.datepicker('getDate'));
   var endDate = moment(date).add($days.val(), 'd');
 
+  var $calendar = $('#calendar');
 
-  $('#calendar').append('<h2>' + $days.val() + ' Days Example</h2>');
+  $calendar.html('');
+
+  // Templates.
+  var $table = $('<table class="table table-bordered"><thead></thead><tbody></tbody></table>');
+  var $tr = $('<tr></tr>');
+  var $th = $('<th></th>');
+  var $td = $('<td></td>');
+
+  $calendar.append('<h2>' + $days.val() + ' Days Example</h2>');
 
   // Main loop.
   while(date < endDate) {
     date = moment(date).add(1, 'd');
-    console.log(date.format('DD MM YYYY'));
+
+    var thisMonth = date.format('MM');
+    var thisYear = date.format('YYYY');
+
+    var $tableClone = $table.clone();
+    $tableClone
+      .addClass('m-' + thisMonth + '-' + thisYear);
+
+    var $trClone = $tr.clone();
+    daysArray.forEach(function(i) {
+      var $tdClone = $td.clone();
+      $tdClone
+        .addClass('text-center')
+        .text(i)
+        .appendTo($trClone);
+    });
+
+
+    $trClone.appendTo($tableClone);
+    $tableClone.appendTo($calendar);
+
   }
 
 });
