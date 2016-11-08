@@ -4,6 +4,7 @@
   "description": "Calendar render example",
   "main": "js/script.js",
   "scripts": {
+    "build": "browserify -t debowerify ./source/app.js -o ./js/script.js",
     "watch": "watchify -t debowerify ./source/app.js -o ./js/script.js"
   },
   "repository": {
